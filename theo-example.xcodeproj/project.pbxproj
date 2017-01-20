@@ -1,0 +1,392 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CDE34DD31951AAA4017958E /* Pods_theo_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE8D822B9094180B0543D8F /* Pods_theo_example.framework */; };
+		85A2CCF81E322E3D00B3AF84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2CCF71E322E3D00B3AF84 /* AppDelegate.swift */; };
+		85A2CCFD1E322E3D00B3AF84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85A2CCFB1E322E3D00B3AF84 /* Main.storyboard */; };
+		85A2CCFF1E322E3D00B3AF84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A2CCFE1E322E3D00B3AF84 /* Assets.xcassets */; };
+		85A2CD021E322E3D00B3AF84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85A2CD001E322E3D00B3AF84 /* LaunchScreen.storyboard */; };
+		85A2CD0A1E322E8300B3AF84 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2CD091E322E8300B3AF84 /* ConnectViewController.swift */; };
+		85A2CD0C1E322E9000B3AF84 /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2CD0B1E322E9000B3AF84 /* QueryViewController.swift */; };
+		85A2CD0E1E3239B400B3AF84 /* ConnectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2CD0D1E3239B400B3AF84 /* ConnectionConfig.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01F350C6679EC65894691CED /* Pods-theo-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theo-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-theo-example/Pods-theo-example.release.xcconfig"; sourceTree = "<group>"; };
+		4F082D39AC515497952AC2C0 /* Pods-theo-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theo-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-theo-example/Pods-theo-example.debug.xcconfig"; sourceTree = "<group>"; };
+		85A2CCF41E322E3D00B3AF84 /* theo-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "theo-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85A2CCF71E322E3D00B3AF84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		85A2CCFC1E322E3D00B3AF84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85A2CCFE1E322E3D00B3AF84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85A2CD011E322E3D00B3AF84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85A2CD031E322E3D00B3AF84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85A2CD091E322E8300B3AF84 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		85A2CD0B1E322E9000B3AF84 /* QueryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
+		85A2CD0D1E3239B400B3AF84 /* ConnectionConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionConfig.swift; sourceTree = "<group>"; };
+		ABE8D822B9094180B0543D8F /* Pods_theo_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theo_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85A2CCF11E322E3D00B3AF84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CDE34DD31951AAA4017958E /* Pods_theo_example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75C3D45FDEBBC6AE252A450F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F082D39AC515497952AC2C0 /* Pods-theo-example.debug.xcconfig */,
+				01F350C6679EC65894691CED /* Pods-theo-example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		85A2CCEB1E322E3D00B3AF84 = {
+			isa = PBXGroup;
+			children = (
+				85A2CCF61E322E3D00B3AF84 /* theo-example */,
+				85A2CCF51E322E3D00B3AF84 /* Products */,
+				75C3D45FDEBBC6AE252A450F /* Pods */,
+				FEB236B069B00BA2AE0091AF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		85A2CCF51E322E3D00B3AF84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85A2CCF41E322E3D00B3AF84 /* theo-example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85A2CCF61E322E3D00B3AF84 /* theo-example */ = {
+			isa = PBXGroup;
+			children = (
+				85A2CCF71E322E3D00B3AF84 /* AppDelegate.swift */,
+				85A2CCFB1E322E3D00B3AF84 /* Main.storyboard */,
+				85A2CCFE1E322E3D00B3AF84 /* Assets.xcassets */,
+				85A2CD001E322E3D00B3AF84 /* LaunchScreen.storyboard */,
+				85A2CD031E322E3D00B3AF84 /* Info.plist */,
+				85A2CD091E322E8300B3AF84 /* ConnectViewController.swift */,
+				85A2CD0B1E322E9000B3AF84 /* QueryViewController.swift */,
+				85A2CD0D1E3239B400B3AF84 /* ConnectionConfig.swift */,
+			);
+			path = "theo-example";
+			sourceTree = "<group>";
+		};
+		FEB236B069B00BA2AE0091AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABE8D822B9094180B0543D8F /* Pods_theo_example.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85A2CCF31E322E3D00B3AF84 /* theo-example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85A2CD061E322E3D00B3AF84 /* Build configuration list for PBXNativeTarget "theo-example" */;
+			buildPhases = (
+				760070B9C01F9D6F46D6AA9C /* [CP] Check Pods Manifest.lock */,
+				85A2CCF01E322E3D00B3AF84 /* Sources */,
+				85A2CCF11E322E3D00B3AF84 /* Frameworks */,
+				85A2CCF21E322E3D00B3AF84 /* Resources */,
+				ABC56FB6B487660A4EC5C319 /* [CP] Embed Pods Frameworks */,
+				85F36A2E6B4B2D8C45721007 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "theo-example";
+			productName = "theo-example";
+			productReference = 85A2CCF41E322E3D00B3AF84 /* theo-example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85A2CCEC1E322E3D00B3AF84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Niklas Saers";
+				TargetAttributes = {
+					85A2CCF31E322E3D00B3AF84 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 85A2CCEF1E322E3D00B3AF84 /* Build configuration list for PBXProject "theo-example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85A2CCEB1E322E3D00B3AF84;
+			productRefGroup = 85A2CCF51E322E3D00B3AF84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85A2CCF31E322E3D00B3AF84 /* theo-example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85A2CCF21E322E3D00B3AF84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85A2CD021E322E3D00B3AF84 /* LaunchScreen.storyboard in Resources */,
+				85A2CCFF1E322E3D00B3AF84 /* Assets.xcassets in Resources */,
+				85A2CCFD1E322E3D00B3AF84 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		760070B9C01F9D6F46D6AA9C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		85F36A2E6B4B2D8C45721007 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-theo-example/Pods-theo-example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABC56FB6B487660A4EC5C319 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-theo-example/Pods-theo-example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85A2CCF01E322E3D00B3AF84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85A2CD0A1E322E8300B3AF84 /* ConnectViewController.swift in Sources */,
+				85A2CD0C1E322E9000B3AF84 /* QueryViewController.swift in Sources */,
+				85A2CCF81E322E3D00B3AF84 /* AppDelegate.swift in Sources */,
+				85A2CD0E1E3239B400B3AF84 /* ConnectionConfig.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		85A2CCFB1E322E3D00B3AF84 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85A2CCFC1E322E3D00B3AF84 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85A2CD001E322E3D00B3AF84 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85A2CD011E322E3D00B3AF84 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85A2CD041E322E3D00B3AF84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		85A2CD051E322E3D00B3AF84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85A2CD071E322E3D00B3AF84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F082D39AC515497952AC2C0 /* Pods-theo-example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "theo-example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.saers.theo-example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		85A2CD081E322E3D00B3AF84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01F350C6679EC65894691CED /* Pods-theo-example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "theo-example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.saers.theo-example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85A2CCEF1E322E3D00B3AF84 /* Build configuration list for PBXProject "theo-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85A2CD041E322E3D00B3AF84 /* Debug */,
+				85A2CD051E322E3D00B3AF84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85A2CD061E322E3D00B3AF84 /* Build configuration list for PBXNativeTarget "theo-example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85A2CD071E322E3D00B3AF84 /* Debug */,
+				85A2CD081E322E3D00B3AF84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85A2CCEC1E322E3D00B3AF84 /* Project object */;
+}
