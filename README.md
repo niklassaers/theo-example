@@ -1,9 +1,9 @@
 # theo-example
-iOS example of how to use Theo, the Neo4j Swift framework for iOS, macOS and Linux
+iOS example of how to use [Theo](https://github.com/GraphStory/neo4j-ios), the Neo4j Swift framework for iOS, macOS and Linux
 
 ## Build & Run
 
-If you haven't already, install [CocoaPods][https://cocoapods.org]:
+If you haven't already, install [CocoaPods](https://cocoapods.org):
 
 ```bash
 $ gem install cocoapods
@@ -42,10 +42,10 @@ theo?.metaDescription({ [weak self] (_, error) in
 })
 ```
 
-This and the following code is from [QueryViewController][https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift].
+This and the following code is from [QueryViewController](https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift).
 What happens here is that we're creating a client based on the connection data provided, and ask it for metadata. Since we only reallly wanted to test the parameters, we ignore the returned data (the _ parameter in (_, error) ). Theo allows us to specify what DispatchQueue we want to have our results served on, but to be explicit we have not set this in the example and thus select the main dispatch queue when the answer returns. There we output any errors, and if there were none, we enable the four buttons we have set up with each their own query.
 
-The first button we access is [Create a node][https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift#L55]:
+The first button we access is [Create a node](https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift#L55):
 
 ```swift
 @IBAction func createNodeTapped(_ sender: UIButton) {
@@ -75,7 +75,7 @@ The first button we access is [Create a node][https://github.com/niklassaers/the
 
 Here we set up the node we want, and then ask theo to create it. Again, since we want to update the UI, we ask the main queue to handle our result, and display the created node's ID, as well as store the nodeId in an instance variable lastNodeId, that we'll use in our next example.
 
-The second button we access is [Fetch created node][https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift#L80] that will look up the last created node, the one we just stored the node ID of in the lastNodeId instance variable.
+The second button we access is [Fetch created node](https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift#L80) that will look up the last created node, the one we just stored the node ID of in the lastNodeId instance variable.
 
 ```swift
 @IBAction func fetchNodeTapped(_ sender: UIButton) {
@@ -95,7 +95,7 @@ The second button we access is [Fetch created node][https://github.com/niklassae
 ```
 Because the instance variable can change while our query is running, we copy it to fetchingId. Then we query for that node, and assuming it is still there, we output that we successfully got it. If it has been deleted in the meanwhile, or the database has gone away, we display the error received.
 
-In the demo video, we then skip forward to [Run transaction][https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift#L113] where we run two cypher statements:
+In the demo video, we then skip forward to [Run transaction](https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift#L113) where we run two cypher statements:
 - ```CREATE (n:TheoTest { myProperty: 'A value' } )```
 - ```CREATE (m:TheoTest { myProperty: 'Another value' } )```
 
@@ -126,7 +126,7 @@ In the demo video, we then skip forward to [Run transaction][https://github.com/
 
 As from the other examples, we then output whether the transaction was successful or not.
 
-Finally, we [run a single cypher query][https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift#L95], asking how many nodes there are labelled TheoTest:
+Finally, we [run a single cypher query](https://github.com/niklassaers/theo-example/blob/master/theo-example/QueryViewController.swift#L95), asking how many nodes there are labelled TheoTest:
 
 ```swift
 @IBAction func runCypherTapped(_ sender: UIButton) {
