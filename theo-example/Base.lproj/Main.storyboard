@@ -227,9 +227,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="6RN-na-67A"/>
                                         </constraints>
-                                        <state key="normal" title="Fetch created nodes"/>
+                                        <state key="normal" title="Fetch created node"/>
                                         <connections>
-                                            <action selector="fetchNodesTapped:" destination="fdY-9s-xgb" eventType="touchUpInside" id="hSa-Rz-8Wd"/>
+                                            <action selector="fetchNodeTapped:" destination="fdY-9s-xgb" eventType="touchUpInside" id="wAn-b8-gz4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1NR-lb-DA6">
@@ -278,7 +278,7 @@
                     </view>
                     <connections>
                         <outlet property="createNodeButton" destination="QUC-bj-MFZ" id="Yym-nW-RhG"/>
-                        <outlet property="fetchNodesButton" destination="lGx-JQ-pY2" id="znY-Xn-CG6"/>
+                        <outlet property="fetchNodeButton" destination="lGx-JQ-pY2" id="Y74-2F-Up7"/>
                         <outlet property="outputTextView" destination="xKg-RK-pbx" id="I6F-uc-qD6"/>
                         <outlet property="runCypherButton" destination="1NR-lb-DA6" id="2td-qM-Z0L"/>
                         <outlet property="runTransactionButton" destination="SXk-Ax-EYV" id="2Og-zG-qpf"/>

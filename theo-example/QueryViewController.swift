@@ -7,7 +7,7 @@ class QueryViewController: UIViewController {
     @IBOutlet weak var outputTextView: UITextView?
     
     @IBOutlet weak var createNodeButton: UIButton?
-    @IBOutlet weak var fetchNodesButton: UIButton?
+    @IBOutlet weak var fetchNodeButton: UIButton?
     @IBOutlet weak var runCypherButton: UIButton?
     @IBOutlet weak var runTransactionButton: UIButton?
     
@@ -40,14 +40,14 @@ class QueryViewController: UIViewController {
 
     private func enableButtons() {
         createNodeButton?.isEnabled = true
-        fetchNodesButton?.isEnabled = true
+        fetchNodeButton?.isEnabled = true
         runCypherButton?.isEnabled = true
         runTransactionButton?.isEnabled = true
     }
     
     private func disableButtons() {
         createNodeButton?.isEnabled = false
-        fetchNodesButton?.isEnabled = false
+        fetchNodeButton?.isEnabled = false
         runCypherButton?.isEnabled = false
         runTransactionButton?.isEnabled = false
     }
@@ -77,9 +77,9 @@ class QueryViewController: UIViewController {
 
     }
     
-    @IBAction func fetchNodesTapped(_ sender: UIButton) {
+    @IBAction func fetchNodeTapped(_ sender: UIButton) {
         let fetchingId = lastNodeId
-        theo?.fetchNode(lastNodeId, completionBlock: { (node, error) in
+        theo?.fetchNode(fetchingId, completionBlock: { (node, error) in
             DispatchQueue.main.async { [weak self] in
                 let text = self?.outputTextView?.text ?? ""
                 if let error = error {
@@ -93,14 +93,14 @@ class QueryViewController: UIViewController {
     }
     
     @IBAction func runCypherTapped(_ sender: UIButton) {
-        theo?.executeCypher("MATCH (n:TheoTest) RETURN count(n) AS num") { (node, error) in
+        theo?.executeCypher("MATCH (n:TheoTest) RETURN count(n) AS num") { (result, error) in
             DispatchQueue.main.async { [weak self] in
                 let text = self?.outputTextView?.text ?? ""
                 if let error = error {
                     self?.outputTextView?.text = "Error while executing cypher: \(error)\n\n\(text)"
                 } else {
                     var num = "N/A"
-                    if let data = node?.data,
+                    if let data = result?.data,
                         let n = data.first?["num"] as? Int {
                         num = "\(n)"
                     }
