@@ -93,7 +93,7 @@ class QueryViewController: UIViewController {
     }
     
     @IBAction func runCypherTapped(_ sender: UIButton) {
-        theo?.executeCypher("MATCH (n:TheoTest) RETURN count(n) AS num") { (result, error) in
+        theo?.executeCypher("MATCH (n:TheoTest) RETURN count(n) AS num", params: nil) { (result, error) in
             DispatchQueue.main.async { [weak self] in
                 let text = self?.outputTextView?.text ?? ""
                 if let error = error {
