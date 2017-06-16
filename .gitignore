@@ -3,3 +3,4 @@ Podfile.lock
 theo-example.xcworkspace
 **/xcuserdata
 **/*.xcworkspace
+.DS_Store

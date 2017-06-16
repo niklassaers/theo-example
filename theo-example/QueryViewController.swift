@@ -12,7 +12,7 @@ class QueryViewController: UIViewController {
     @IBOutlet weak var runTransactionButton: UIButton?
     
     
-    private var theo: Theo.Client?
+    private var theo: BoltClient?
     private var lastNodeId = "1"
     
     override func viewDidLoad() {
@@ -20,18 +20,46 @@ class QueryViewController: UIViewController {
         
         disableButtons()
         if let config = connectionConfig {
-            theo = Client(baseURL: config.host, user: config.username, pass: config.password)
-            outputTextView?.text = "Connecting..."
-            theo?.metaDescription({ [weak self] (_, error) in
+            do {
+            theo = try  BoltClient(hostname: config.host, port: config.port, username: config.username, password: config.password, encrypted: true)
+            } catch {
                 DispatchQueue.main.async { [weak self] in
-                    if let error = error {
-                        self?.outputTextView?.text = "Error while connecting: \(error)"
-                    } else {
-                        self?.outputTextView?.text = "Connected"
-                        self?.enableButtons()
+                    self?.outputTextView?.text = "Failed during connection configuration"
+                }
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                self?.outputTextView?.text = "Connecting..."
+            }
+            
+            do {
+                let group = DispatchGroup()
+                group.enter()
+                try theo?.connect() { (success) in
+                    if success == false {
+                        self.outputTextView?.text = "Error while connecting"
+                    }
+                    group.leave()
+                }
+                group.wait()
+
+                _ = try theo?.executeCypher("MATCH (n:ImpossibleNode) RETURN count(n)", params: nil) { (result) in
+                    DispatchQueue.main.async { [weak self] in
+                        if result == false {
+                            self?.outputTextView?.text = "Error while connecting"
+                        } else {
+                            self?.outputTextView?.text = "Connected"
+                            self?.enableButtons()
+                        }
                     }
                 }
-            })
+            } catch {
+                DispatchQueue.main.async { [weak self] in
+                    self?.outputTextView?.text = "Error while connecting: \(error)"
+                }
+                return
+            }
+
         } else {
             outputTextView?.text = "Missing connection configuration"
         }
@@ -53,31 +81,32 @@ class QueryViewController: UIViewController {
     }
     
     @IBAction func createNodeTapped(_ sender: UIButton) {
-        let node = Node()
+        var node = Node()
         let randomString: String = UUID().uuidString
         
-        node.addLabel("TheoTest")
-        node.setProp("propertyKey_1", propertyValue: "propertyValue_1" + randomString)
-        node.setProp("propertyKey_2", propertyValue: "propertyValue_2" + randomString)
+        let query = "CREATE (n:TheoTest { propertyKey_1: {prop1}, propertyKey_2: {prop2} } RETURN n"
+        let params = ["prop1": "propertyValue_1", "prop2": "propertyValue_2"]
         
-        theo?.createNode(node, completionBlock: { (node, error) in
-            DispatchQueue.main.async { [weak self] in
-                let text = self?.outputTextView?.text ?? ""
-                if let error = error {
-                    self?.outputTextView?.text = "Error while creating node: \(error)\n\n\(text)"
-                } else {
-                    let nodeId = node?.meta?.nodeID()
-                    self?.outputTextView?.text = "Created node with ID \(nodeId ?? "N/A")\n\n\(text)"
-                    if let nodeId = nodeId {
-                        self?.lastNodeId = nodeId
+        do {
+            try theo?.executeCypher(query, params: params) { result in
+                var text = self.outputTextView?.text ?? ""
+                do {
+                    try theo?.pullAll { (success, response) in
+                        text.append(response.description)
+                        text.append("\n")
                     }
+                } catch {
+                    self.outputTextView?.text = "Error while creating node: \(error)\n\n\(text)"
                 }
             }
-        })
-
+        } catch {
+            let text = self.outputTextView?.text ?? ""
+            self.outputTextView?.text = "Error while creating node: \(error)\n\n\(text)"
+        }
     }
     
     @IBAction func fetchNodeTapped(_ sender: UIButton) {
+        /*
         let fetchingId = lastNodeId
         theo?.fetchNode(fetchingId, completionBlock: { (node, error) in
             DispatchQueue.main.async { [weak self] in
@@ -89,28 +118,48 @@ class QueryViewController: UIViewController {
                 }
             }
         })
-
+        */
     }
     
     @IBAction func runCypherTapped(_ sender: UIButton) {
-        theo?.executeCypher("MATCH (n:TheoTest) RETURN count(n) AS num", params: nil) { (result, error) in
-            DispatchQueue.main.async { [weak self] in
-                let text = self?.outputTextView?.text ?? ""
-                if let error = error {
-                    self?.outputTextView?.text = "Error while executing cypher: \(error)\n\n\(text)"
-                } else {
-                    var num = "N/A"
-                    if let data = result?.data,
-                        let n = data.first?["num"] as? Int {
-                        num = "\(n)"
+        do {
+            try theo?.executeCypher("MATCH (n:TheoTest) RETURN count(n) AS num", params: nil) { (success) in
+                do {
+                    try theo?.pullAll { (success, results) in
+                        if success == false {
+                            DispatchQueue.main.async {
+                                let text = self.outputTextView?.text ?? ""
+                                self.outputTextView?.text = "Error while getting cypher results\n\n\(text)"
+                            }
+                        }
+                        for result in results {
+                            let num = result.items.first as? Int
+                            DispatchQueue.main.async {
+                                let text = self.outputTextView?.text ?? ""
+                                self.outputTextView?.text = "Asked via Cypher how many nodes there are with label TheoTest. Answer: \(num)\n\n\(text)"
+                            }
+                            
+                        }
                     }
-                    self?.outputTextView?.text = "Asked via Cypher how many nodes there are with label TheoTest. Answer: \(num)\n\n\(text)"
+                } catch {
+                    DispatchQueue.main.async {
+                        let text = self.outputTextView?.text ?? ""
+                        self.outputTextView?.text = "Error while getting cypher results: \(error)\n\n\(text)"
+                    }
                 }
             }
+        } catch {
+            DispatchQueue.main.async {
+                let text = self.outputTextView?.text ?? ""
+                self.outputTextView?.text = "Error while executing cypher: \(error)\n\n\(text)"
+            }
         }
+        
     }
     
     @IBAction func runTransactionTapped(_ sender: UIButton) {
+        
+        /*
         let statement1 = [
             "statement" : "CREATE (n:TheoTest { myProperty: 'A value' } )" as AnyObject,
             "resultDataContents" : ["graph","row"] as AnyObject
@@ -130,7 +179,7 @@ class QueryViewController: UIViewController {
                 }
             }
         }
-        
+        */
     }
     
 }
