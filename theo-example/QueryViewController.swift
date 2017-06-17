@@ -176,6 +176,7 @@ class QueryViewController: UIViewController {
                                let num = resultList.items.first,
                                let intNum = Int(num) {
                                 log("Asked via Cypher how many nodes there are with label TheoTest. Answer: \(intNum)")
+                                break
                             } else {
                                 log("Got unexpected answer back")
                             }
@@ -191,28 +192,19 @@ class QueryViewController: UIViewController {
     }
     
     @IBAction func runTransactionTapped(_ sender: UIButton) {
-        
-        /*
-        let statement1 = [
-            "statement" : "CREATE (n:TheoTest { myProperty: 'A value' } )" as AnyObject,
-            "resultDataContents" : ["graph","row"] as AnyObject
-        ]
-        let statement2 = [
-            "statement" : "CREATE (m:TheoTest { myProperty: 'Another value' } )" as AnyObject,
-            "resultDataContents" : ["graph","row"] as AnyObject
-        ]
-        
-        theo?.executeTransaction([statement1, statement2]) { (result, error) in
-            DispatchQueue.main.async { [weak self] in
-                let text = self?.outputTextView?.text ?? ""
-                if let error = error {
-                    self?.outputTextView?.text = "Error while executing transaction: \(error)\n\n\(text)"
-                } else {
-                    self?.outputTextView?.text = "Transaction completed successfully\n\n\(text)"
-                }
-            }
+
+        do {
+            try theo?.executeAsTransaction(transactionBlock: { (tx) in
+                let query = "CREATE (n:TheoTest { myProperty: {prop} } )"
+                _ = try self.theo?.executeCypher(query, params: ["prop": "A value"])
+                _ = try self.theo?.executeCypher(query, params: ["prop": "Another value"])
+            })
+        } catch {
+            log("Error while executing transaction: \(error)")
+            return
         }
-        */
+        
+        log("Transaction completed successfully")
     }
     
 }
