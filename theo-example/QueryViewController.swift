@@ -108,7 +108,8 @@ class QueryViewController: UIViewController {
                             responseList.items.count == 2,
                             let responseNode = responseList.items[0] as? Structure,
                             let responseNodeId = Int(responseList.items[1]) {
-                                log(response.description)
+                                lastNodeId = "\(responseNodeId)"
+                                log("\(responseNode)")
                         }
                     }
                 } catch {
@@ -121,19 +122,32 @@ class QueryViewController: UIViewController {
     }
     
     @IBAction func fetchNodeTapped(_ sender: UIButton) {
-        /*
-        let fetchingId = lastNodeId
-        theo?.fetchNode(fetchingId, completionBlock: { (node, error) in
-            DispatchQueue.main.async { [weak self] in
-                let text = self?.outputTextView?.text ?? ""
-                if let error = error {
-                    self?.outputTextView?.text = "Error while fetching node with ID '\(fetchingId)': \(error)\n\n\(text)"
-                } else {
-                    self?.outputTextView?.text = "Fetched node with ID \(node?.meta?.nodeID() ?? "N/A") successfully\n\n\(text)"
+        
+        let nodeId = lastNodeId
+        let query = "MATCH (n) WHERE ID(n) = \(nodeId) RETURN n"
+
+        do {
+            try theo?.executeCypher(query, params: nil) { result in
+                do {
+                    try theo?.pullAll { (success, response) in
+                        if success == false || response.count != 2 {
+                            return
+                        }
+                        
+                        if let responseList = response[0].items[0] as? List,
+                            responseList.items.count == 1,
+                            let responseNode = responseList.items[0] as? Structure {
+
+                            log("Fetched node with ID \(nodeId): \(responseNode)")
+                        }
+                    }
+                } catch {
+                    log("Error while reading fetched node with ID '\(nodeId)': \(error)")
                 }
             }
-        })
-        */
+        } catch {
+            log("Error while fetching node with ID '\(nodeId)': \(error)")
+        }
     }
     
     func log(_ string: String) {
