@@ -58,7 +58,6 @@ class ConnectViewController: UIViewController {
             let hostNameTextFieldPlaceholder = hostNameTextField?.placeholder,
             let portTextFieldText = portTextField?.text,
             let portTextFieldPlaceholder = portTextField?.placeholder,
-            let connectionType = connectionTypeSegmentedControl?.titleForSegment(at: connectionTypeSegmentedControl?.selectedSegmentIndex ?? 0),
             let userNameTextFieldText = userNameTextField?.text,
             let userNameTextFieldPlaceholder = userNameTextField?.placeholder,
             let passwordTextFieldText = passwordTextField?.text,
@@ -68,12 +67,12 @@ class ConnectViewController: UIViewController {
         
         let hostname = hostNameTextFieldText == "" ? hostNameTextFieldPlaceholder : hostNameTextFieldText
 
-        let port = portTextFieldText == "" ? portTextFieldPlaceholder : portTextFieldText
+        let portString = portTextFieldText == "" ? portTextFieldPlaceholder : portTextFieldText
+        let port = Int(portString) ?? 7687
         let username = userNameTextFieldText == "" ? userNameTextFieldPlaceholder : userNameTextFieldText
         let password = passwordTextFieldText == "" ? passwordTextFieldPlaceholder : passwordTextFieldText
         
-        let host = "\(connectionType.lowercased())://\(hostname):\(port)"
-        let config = ConnectionConfig(host: host, username: username, password: password)
+        let config = ConnectionConfig(host: hostname, port: port, username: username, password: password)
         
         if let queryVc = segue.destination as? QueryViewController {
             queryVc.connectionConfig = config
