@@ -3,5 +3,5 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'theo-example' do
-  pod 'Theo', '~> 3.1.2'
+  pod 'Theo', '4.0.0.b3'
 end

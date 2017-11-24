@@ -23,6 +23,7 @@ class ConnectViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    @objc
     func keyboardWillShow(_ notification: NSNotification) {
         if let animationDuration = notification.userInfo?["UIKeyboardAnimationDurationUserInfoKey"] as? CGFloat,
             let keyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect {
@@ -35,6 +36,7 @@ class ConnectViewController: UIViewController {
         }
     }
     
+    @objc
     func keyboardWillHide(_ notification: NSNotification) {
         if let animationDuration = notification.userInfo?["UIKeyboardAnimationDurationUserInfoKey"] as? CGFloat {
             
